@@ -126,9 +126,11 @@ endif
 	@git commit -m "$(VERSION)" $(SHELL_DEBUG)
 	@git tag $(VERSION) $(SHELL_DEBUG)
 	
-	$(call _PRINT_TASK,Requesting git publication)
-	@if make .prompt-yesno message="Do you want push branch and tag" 2> /dev/null; then \
+	@if make .prompt-yesno MSG="Do you want push branch and tag" 2> /dev/null; then \
+		make _print_task MSG="Send git modification to repository"; \
+		make _print_subtask MSG="Send commits"; \
 		git push $(SHELL_DEBUG); \
+		make _print_subtask MSG="Send tags"; \
 		git push --tags $(SHELL_DEBUG); \
 	fi
 endif

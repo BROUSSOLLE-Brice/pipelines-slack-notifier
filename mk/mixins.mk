@@ -63,4 +63,8 @@ HELP_FUN = \
     print "\n"; }
 
 _msg_error:
-	$(call _MSG_ERROR,$(MSG),$(CODE))
+	$(call _MSG_ERROR,$(MSG))
+_print_task:
+	$(call _PRINT_TASK,$(MSG))
+_print_subtask:
+	$(call _PRINT_SUBTASK,$(MSG))

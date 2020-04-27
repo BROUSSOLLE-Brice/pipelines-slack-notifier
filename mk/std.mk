@@ -36,5 +36,5 @@ ifneq ($(_CURRENT_USER), root)
 endif 
 
 .prompt-yesno:
-	@echo "$(_YELLOW)$(message) [y/n]:$(_END)"
+	@echo "$(_YELLOW)$(MSG)? [y/n]:$(_END)"
 	@read -rs -n 1 yn && [[ -z $$yn ]] || [[ $$yn == [yY] ]] && echo Y >&2 || (echo N >&2 && exit 1)
